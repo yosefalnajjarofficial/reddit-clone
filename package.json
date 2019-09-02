@@ -1,0 +1,39 @@
+{
+  "name": "reddit-clone",
+  "version": "1.0.0",
+  "description": "Reddit Clone",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yosefalnajjarofficial/reddit-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yosefalnajjarofficial/reddit-clone/issues"
+  },
+  "homepage": "https://github.com/yosefalnajjarofficial/reddit-clone#readme",
+  "devDependencies": {
+    "codecov": "^3.5.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "env2": "^2.2.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  }
+}
