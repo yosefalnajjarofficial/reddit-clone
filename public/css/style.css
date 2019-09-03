@@ -1,0 +1,131 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  background: rgba(115, 182, 182, 0.301);
+}
+
+.header {
+  width: 100%;
+  background: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.buttons a {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  text-decoration: none;
+}
+
+.login {
+  background: #fff;
+  color: #000;
+}
+
+.signup {
+  background: #000;
+  color: #fff;
+}
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.posts {
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.posts .post {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post-votes {
+  display: flex;
+}
+
+.post-votes button {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.post-votes span {
+  display: block;
+}
+
+.post-info {
+  order: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.post-info .join {
+  background: lightseagreen;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.community-name {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.post-time {
+  font-size: 14px;
+}
+
+.post-paragraph {
+  margin: 5px;
+  font-size: 24px;
+}
+
+.comments {
+  margin: 5px 0;
+  padding: 5px;
+  background: #eee;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.comment {
+  border-bottom: 1px solid #aaa;
+}
+
+.comment-info {
+  font-size: 14px;
+}
+
+.comment-content {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.username {
+  font-weight: 700;
+  color: rgb(67, 67, 253);
+  text-decoration: none;
+}
+
+@media (min-width: 600px) {
+  .main {
+    width: 70%;
+  }
+}
