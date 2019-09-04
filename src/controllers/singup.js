@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const { addUser } = require('../database/queries/users');
 
@@ -16,7 +17,15 @@ exports.postSignup = (req, res) => {
       req.body.password = hash;
       // Storing the hashed password and user info
       addUser(req.body)
-        .then((result) => res.redirect('/'))
+        .then((result) => {
+          // Give the user an access token
+          const privateKey = process.env.PRIVATE_KEY;
+          return jwt.sign({ role: 'user' }, privateKey);
+        })
+        .then((token) => {
+          res.cookie('access', token);
+          res.redirect('/');
+        })
         .catch((err) => console.log(err));
     })
     .catch((err) => console.log(err));

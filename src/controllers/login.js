@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const { getUsers } = require('../database/queries/users');
 
@@ -19,6 +20,12 @@ exports.postLogin = (req, res) => {
     // If all true then login
     .then((result) => {
       if (!result) throw Error('Password is incorrect');
+      const privateKey = process.env.PRIVATE_KEY;
+      // Give the user an access token
+      return jwt.sign({ role: 'user' }, privateKey);
+    })
+    .then((token) => {
+      res.cookie('access', token);
       res.redirect('/');
     })
     // If something went wrong, inform the user

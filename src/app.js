@@ -2,6 +2,9 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const { join } = require('path');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+
+require('env2')('./config.env');
 
 const app = express();
 
@@ -24,6 +27,7 @@ app.engine(
   }),
 );
 
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(join(__dirname, '..', 'public')));
 app.use(router);
