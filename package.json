@@ -32,6 +32,7 @@
     "tape": "^4.11.0"
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "cookie-parser": "^1.4.4",
     "env2": "^2.2.2",
     "express": "^4.17.1",

@@ -136,8 +136,46 @@ body {
   font-size: 16px;
 }
 
+/* Styling The Forms */
+
+.form-heading {
+  text-transform: capitalize;
+  text-align: center;
+  margin: 20px;
+}
+
+form {
+  background: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form input {
+  display: block;
+  padding: 10px 20px;
+  margin: 15px auto;
+  width: 80%;
+}
+
+.form-btn {
+  background: rgb(103, 103, 253);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.form-btn:hover {
+  background: rgb(83, 83, 250);
+}
+
 @media (min-width: 600px) {
   .main {
+    width: 70%;
+  }
+  form input {
     width: 70%;
   }
 }

@@ -24,6 +24,7 @@ app.engine(
   }),
 );
 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(join(__dirname, '..', 'public')));
 app.use(router);
 
