@@ -1,6 +1,7 @@
 const { connection } = require('../config/connection');
 
 const getUsers = (username) => connection.query('SELECT * FROM users WHERE username = $1', [username]);
+
 const addUser = (userInfo) => {
   const {
     username, password, email, bio,

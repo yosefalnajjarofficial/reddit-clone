@@ -21,14 +21,11 @@ exports.getHome = (req, res) => {
         const privateKey = process.env.PRIVATE_KEY;
         // First check if it's the right token
         jwt.verify(access, privateKey, (err, decoded) => {
-          if (err) res.render('home', { posts: results, logged: false });
+          if (err) console.log('Not allowed');
           else res.render('home', { posts: results, logged: true });
         });
-      }
-      res.render('home', { posts: results, logged: false });
-
-      // // If the user does not have access show home
-      // res.render('home', { posts: results, logged: false });
+        // If the user does not have access show home
+      } else res.render('home', { posts: results, logged: false });
     })
     .catch((err) => console.log(err));
 };
