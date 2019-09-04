@@ -12,14 +12,14 @@ CREATE TABLE users (
 
 CREATE TABLE communities (
     id serial PRIMARY KEY NOT NULL,
-    name TEXT NOT NULL,
+    community_name TEXT NOT NULL,
     user_id integer REFERENCES users(id)
 );
 
 CREATE TABLE posts (
     id serial PRIMARY KEY NOT NULL,
-    title TEXT NOT NULL,
-    content TEXT NOT NULL,
+    post_title TEXT NOT NULL,
+    post_content TEXT NOT NULL,
     up_votes integer NOT NULL,
     down_votes integer NOT NULL,
     user_id integer REFERENCES users(id) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE posts (
 
 CREATE TABLE comments (
     id serial PRIMARY KEY NOT NULL,
-    content TEXT NOT NULL,
+    comment_content TEXT NOT NULL,
     up_votes integer NOT NULL,
     down_votes integer NOT NULL,
     user_id integer REFERENCES users(id) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE comments (
 
 CREATE TABLE replies (
     id serial PRIMARY KEY NOT NULL,
-    content TEXT NOT NULL,
+    reply_content TEXT NOT NULL,
     up_votes integer NOT NULL,
     down_votes integer NOT NULL,
     user_id integer REFERENCES users(id),
