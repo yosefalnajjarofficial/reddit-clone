@@ -2,7 +2,7 @@ const express = require('express');
 const { getHome } = require('./home');
 const { getLogin, postLogin } = require('./login');
 const { getSignup, postSignup } = require('./singup');
-const { getProfile } = require('./profile');
+const { getProfile, postProfile } = require('./profile');
 
 const router = express.Router();
 
@@ -18,7 +18,10 @@ router
   .get(getSignup)
   .post(postSignup);
 
-router.get('/profile', getProfile);
+router
+  .route('/profile')
+  .get(getProfile)
+  .post(postProfile);
 
 module.exports = {
   router,

@@ -32,7 +32,7 @@
             </g>
         </svg>
     </div>
-    <a href="#" class="profile-username">username</a>
+    <a href="/profile" class="profile-username">username</a>
 </header>
 <main class="main">
     <div class="profile-info">
@@ -43,6 +43,16 @@
         <a href="#" class="profile-posts">Posts</a>
         <a href="#" class="profile-comments">Comments</a>
     </div>
+    <form action="/profile" method="POST" class="post-form">
+        <select name="community">
+            {{#each communities}}
+            <option value="{{this.community_name}}">{{this.community_name}}</option>
+            {{/each}}
+        </select>
+        <input type="text" name="postTitle" placeholder="add a title here" class="title-filed">
+        <textarea name="postContent" cols="30" rows="10"></textarea>
+        <input type="submit" class="form-btn" value="New Post">
+    </form>
     <section class="posts">
         {{#each posts}}
         <div class="post">

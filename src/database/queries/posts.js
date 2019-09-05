@@ -9,7 +9,20 @@ const getUserPosts = (userId) => connection.query(
   [userId],
 );
 
+const addPost = (postData) => {
+  const {
+    postTitle, postContent, id, communityId,
+  } = postData;
+  const sql = {
+    text:
+      'INSERT INTO posts (post_title, post_content, up_votes, down_votes, user_id, community_id) VALUES ($1, $2, $3, $4, $5, $6)',
+    values: [postTitle, postContent, 10, 5, id, communityId],
+  };
+  return connection.query(sql);
+};
+
 module.exports = {
   getPosts,
   getUserPosts,
+  addPost,
 };

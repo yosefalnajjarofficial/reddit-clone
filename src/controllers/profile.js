@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken');
 
-const { getUserPosts } = require('../database/queries/posts');
+const { getUserPosts, addPost } = require('../database/queries/posts');
 const { getComments } = require('../database/queries/comments');
 const { getUserComments } = require('../database/queries/comments');
 const { formatPosts } = require('../helpers/format');
+const { getCommunities, getCommunityByName } = require('../database/queries/communities');
 
 exports.getProfile = (req, res) => {
   let posts;
@@ -15,8 +16,9 @@ exports.getProfile = (req, res) => {
       if (err) throw Error('not a good cookie');
 
       const { id, username, bio } = decoded;
+      req.userId = id;
       // Show his profile
-      getUserPosts(1)
+      getUserPosts(id)
         .then((result) => {
           posts = result.rows;
           return posts;
@@ -26,11 +28,14 @@ exports.getProfile = (req, res) => {
         .then((result) => formatPosts(posts, result))
         .then((rs) => {
           getUserComments('fares98').then((result) => {
-            res.render('profile', {
-              posts: rs,
-              username,
-              bio,
-              comments: result.rows,
+            getCommunities().then((communities) => {
+              res.render('profile', {
+                posts: rs,
+                username,
+                bio,
+                comments: result.rows,
+                communities: communities.rows,
+              });
             });
           });
         })
@@ -40,4 +45,34 @@ exports.getProfile = (req, res) => {
   } else res.redirect('/');
 
   // If he does not direct him to the home page
+};
+
+exports.postProfile = (req, res) => {
+  const { community, postTitle, postContent } = req.body;
+
+  if (req.cookies.access) {
+    const { access } = req.cookies;
+    const privateKey = process.env.PRIVATE_KEY;
+    jwt.verify(access, privateKey, (err, decoded) => {
+      if (err) throw Error('not a good cookie');
+      // Get the user id
+      const { id } = decoded;
+      // Get the community id
+      getCommunityByName(community)
+        .then((result) => {
+          const communityId = result.rows[0].id;
+          const postData = {
+            postTitle,
+            postContent,
+            id,
+            communityId,
+          };
+          addPost(postData);
+          res.redirect('/profile');
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
+  } else throw Error('access denied');
 };
