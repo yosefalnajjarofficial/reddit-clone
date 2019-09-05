@@ -3,11 +3,19 @@
 <main class="main">
     <h2 class="form-heading">fill up the following form</h2>
     <form action="/signup" method="POST" class="singup-form">
-        <input type="text" name="username" placeholder="Enter your username" class="username-field">
-        <input type="password" name="password" placeholder="Enter your password" class="password-field">
-        <input type="password" name="confirmPassword" placeholder="Confirm your password" class="password-field">
-        <input type="email" name="email" placeholder="Enter your email" class="email-field">
-        <input type="text" name="bio" placeholder="Tell us about you" class="bio-field">
+        <input type="text" name="username" placeholder="Enter your username" class="username-field" required>
+        <input type="password" name="password" placeholder="Enter your password" class="password-field" required>
+        <input type="password" name="confirmPassword" placeholder="Confirm your password" class="confirm-field"
+            required>
+        <input type="email" name="email" placeholder="Enter your email" class="email-field" required>
+        <input type="text" name="bio" placeholder="Tell us about you" class="bio-field" required>
         <input type="submit" value="Singup" class="form-btn">
     </form>
+    {{#if message}}
+    <p class="err-message">{{message}}</p>
+    {{else}}
+    <p class="err-message"></p>
+    {{/if}}
 </main>
+
+<script src="js/index.js"></script>
