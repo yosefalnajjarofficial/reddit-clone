@@ -171,6 +171,28 @@ form input {
   background: rgb(83, 83, 250);
 }
 
+.profile-info,
+.profile-options {
+  margin: 10px 0;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-about {
+  font-size: 14px;
+  margin: 5px 0 0 0;
+}
+
+.profile-options a {
+  background: #eee;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000;
+  margin: 0 10px;
+}
+
 @media (min-width: 600px) {
   .main {
     width: 70%;
