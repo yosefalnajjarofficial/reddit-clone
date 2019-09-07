@@ -3,7 +3,7 @@ require('env2')('./config.env');
 
 let db;
 
-if (proccess.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   db = process.env.DATABASE_URL;
 } else {
   db = process.env.DEV_DB;
