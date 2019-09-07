@@ -6,7 +6,10 @@ const { getProfile, postProfile } = require('./profile');
 const { postComment } = require('./comments');
 const { clientError, serverError } = require('./error');
 const { auth } = require('./auth');
-const { getCommunity } = require('./community');
+const { getCommunity, postCommunity } = require('./community');
+const { getLogout } = require('./logout');
+const { joinCommunity } = require('./join');
+const { getMembers } = require('./members');
 
 const router = express.Router();
 
@@ -32,6 +35,10 @@ router
   .post(postProfile);
 
 router.post('/comments', postComment);
+router.post('/join', joinCommunity);
+router.post('/community', postCommunity);
+router.get('/community/:name/members', getMembers);
+router.get('/logout', getLogout);
 
 router.use(clientError);
 router.use(serverError);

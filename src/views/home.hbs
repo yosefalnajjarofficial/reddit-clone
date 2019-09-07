@@ -10,7 +10,7 @@
             </div> <!-- Votes Ends --> --}}
             <div class="post-content">
                 <div class="post-info">
-                    <a href="#" class="community-name">{{this.community_name}}</a>
+                    <a href="/community/{{this.community_name}}" class="community-name">{{this.community_name}}</a>
                     <span class="post-time">Posted By {{this.username}} 4hours ago</span>
                     <button class="join">+join</button>
                 </div>
@@ -21,14 +21,11 @@
         <div class="comments">
             <!-- A button for comments should be here -->
             {{> comment}}
-            {{#if logged}}
-            {{> comment}}
-            {{/if}}
             {{#each this.children}}
             <div class="comment">
                 <div class="comment-info">
                     <a href="#" class="username">{{this.username}}</a>
-                    <span class="comment-points">15k points</span>
+                    {{!-- <span class="comment-points">15k points</span> --}}
                     <span class="comment-time">9 hours</span>
                 </div>
                 <p class="comment-content">
@@ -52,3 +49,5 @@
         {{/each}}
     </section>
 </main>
+
+<script src="js/fetch.js"></script>

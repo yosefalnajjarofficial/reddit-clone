@@ -22,7 +22,7 @@ exports.getHome = (req, res, next) => {
         const privateKey = process.env.PRIVATE_KEY;
         // First check if it's the right token
         jwt.verify(access, privateKey, (err, decoded) => {
-          if (err) throw new Error('Bad access token');
+          if (err) res.status(401).render('alert');
           else res.render('home', { posts: results, logged: true, username: decoded.username });
         });
         // If the user does not have access show home

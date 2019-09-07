@@ -1,0 +1,54 @@
+{{> header}}
+
+<section class="community-info">
+    <h2 class="community-name">{{name}}</h2>
+    <a href="/community/{{name}}/members" class="get-members">members</a>
+</section>
+<section class="posts">
+    {{#each posts}}
+    <div class="post">
+        {{!-- <div class="post-votes">
+                <button class="up-vote">up</button>
+                <span class="votes">21k</span>
+                <button class="down-vote">down</button>
+            </div> <!-- Votes Ends --> --}}
+        <div class="post-content">
+            <div class="post-info">
+                <a href="/community/{{this.community_name}}" class="community-name">{{this.community_name}}</a>
+                <span class="post-time">Posted By {{this.username}} 4hours ago</span>
+                <button class="join">+join</button>
+            </div>
+            <h2 class="post-title">{{this.post_title}}</h2>
+            <p class="post-paragraph">{{this.post_content}}</p>
+        </div>
+    </div> <!-- Post End -->
+    <div class="comments">
+        <!-- A button for comments should be here -->
+        {{> comment}}
+        {{#each this.children}}
+        <div class="comment">
+            <div class="comment-info">
+                <a href="#" class="username">{{this.username}}</a>
+                <span class="comment-points">15k points</span>
+                <span class="comment-time">9 hours</span>
+            </div>
+            <p class="comment-content">
+                {{this.comment_content}}
+            </p>
+        </div>
+        {{!-- <div class="replies">
+                <div class="reply">
+                    <div class="reply-info">
+                        <a href="#" class="username">Marques</a>
+                        <span class="reply-points">15k points</span>
+                        <span class="reply-time">9 hours</span>
+                    </div>
+                    <p class="reply-content">
+                        Lorem ipsum dolor sit amet.
+                    </p>
+                </div> --}}
+        {{/each}}
+    </div>
+    </div> <!-- Comments End -->
+    {{/each}}
+</section>

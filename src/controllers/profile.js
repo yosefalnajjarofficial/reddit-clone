@@ -31,6 +31,7 @@ exports.getProfile = (req, res, next) => {
                 username,
                 comments: comments.rows,
                 communities: communities.rows,
+                logged: true,
               });
             })
             .catch((err) => next(err));

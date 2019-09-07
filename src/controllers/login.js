@@ -45,9 +45,9 @@ exports.postLogin = (req, res, next) => {
     .catch((err) => {
       // If something went wrong, inform the user
       if (err.message.includes('exist')) {
-        res.send(err.message);
+        res.status(401).render('login', {message: err.message});
       } else if (err.message.includes('incorrect')) {
-        res.send(err.message);
+        res.status(401).render('login', {message: err.message});        
       } else next(err);
     });
 };

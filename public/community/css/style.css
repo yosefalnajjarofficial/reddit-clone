@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700&display=swap');
-
 * {
   padding: 0;
   margin: 0;
@@ -9,11 +7,6 @@
 body {
   font-size: 18px;
   background: rgba(115, 182, 182, 0.301);
-  font-family: 'Roboto', sans-serif;
-}
-
-h2 {
-  font-family:'Montserrat', sans-serif;
 }
 
 .header {
@@ -210,12 +203,6 @@ textarea {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.profile-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .profile-about {
   font-size: 14px;
   margin: 5px 0 0 0;
@@ -226,21 +213,10 @@ textarea {
   padding: 10px 20px;
   text-decoration: none;
   color: #000;
-  margin: 10px;
+  margin: 0 10px;
   border: none;
   outline: none;
   cursor: pointer;
-}
-
-.profile-logout {
-  background: red;
-  padding: 5px 15px;
-  margin: 10px auto;
-  color: #fff;
-  font-weight: 700;
-  text-decoration: none;
-  display: block;
-  width: 30%;
 }
 
 .hide {
@@ -273,9 +249,25 @@ textarea {
   text-transform: capitalize;
 }
 
-.joined {
-  background: #fff !important;
-  border: 1px solid rgb(36, 250, 36) !important;
+.community-info {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.community-info h2 {
+  font-size: 32px;
+}
+
+.get-members {
+  background: lightseagreen;
+  margin: 5px 0;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: #000;
 }
 
 
