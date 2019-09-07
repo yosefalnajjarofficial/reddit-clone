@@ -100,8 +100,8 @@ body {
 
 .comments {
   margin: 5px 0;
-  padding: 5px;
-  background: #eee;
+  padding: 0 5px;
+  background: transparent;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -173,6 +173,27 @@ textarea {
   background: rgb(83, 83, 250);
 }
 
+.err-message {
+  text-align: center;
+  color: red;
+  text-transform: capitalize;
+}
+
+.comments-form {
+  background: transparent;
+  display: flex;
+  padding: 5px;
+  box-shadow: 0 0 0;
+}
+
+.comment-input {
+  flex: 3;
+}
+
+.add-btn {
+  flex: 1;
+}
+
 .profile-info,
 .profile-options {
   margin: 10px 0;
@@ -187,12 +208,45 @@ textarea {
   margin: 5px 0 0 0;
 }
 
-.profile-options a {
+.profile-options button {
   background: #eee;
   padding: 10px 20px;
   text-decoration: none;
   color: #000;
   margin: 0 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.add-post-btn {
+  background: rgb(103, 103, 253);
+}
+
+.profile-username {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.alert {
+  width: 60%;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.alert h1 {
+  text-transform: capitalize;
 }
 
 @media (min-width: 600px) {

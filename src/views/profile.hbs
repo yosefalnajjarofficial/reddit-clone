@@ -32,7 +32,7 @@
             </g>
         </svg>
     </div>
-    <a href="/profile" class="profile-username">username</a>
+    <a href="/profile" class="profile-username">{{username}}</a>
 </header>
 <main class="main">
     <div class="profile-info">
@@ -40,10 +40,11 @@
         <p class="profile-about">{{bio}}</p>
     </div>
     <div class="profile-options">
-        <a href="#" class="profile-posts">Posts</a>
-        <a href="#" class="profile-comments">Comments</a>
+        <button class="posts-btn">Posts</button>
+        <button class="comments-btn">Comments</button>
+        <button class="add-post-btn">New Post</button>
     </div>
-    <form action="/profile" method="POST" class="post-form">
+    <form action="/profile" method="POST" class="post-form hide">
         <select name="community">
             {{#each communities}}
             <option value="{{this.community_name}}">{{this.community_name}}</option>
@@ -53,7 +54,7 @@
         <textarea name="postContent" cols="30" rows="10"></textarea>
         <input type="submit" class="form-btn" value="New Post">
     </form>
-    <section class="posts">
+    <section class="profile-posts posts">
         {{#each posts}}
         <div class="post">
             <div class="post-votes">
@@ -103,7 +104,7 @@
         </div> <!-- Comments End -->
         {{/each}}
     </section>
-    <section class="user-comments">
+    <section class="user-comments hide">
         <div class="comments">
             {{#each comments}}
             <div class="comment">
@@ -133,3 +134,5 @@
         </div> <!-- Comments End -->
     </section>
 </main>
+
+<script src="js/buttons.js"></script>

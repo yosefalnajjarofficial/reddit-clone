@@ -9,7 +9,7 @@ exports.schema = Joi.object().keys({
   password: Joi.string()
     .regex(/^[a-zA-Z0-9]{8,}$/)
     .required(),
-  confrimPassword: Joi.any()
+  confirmPassword: Joi.any()
     .valid(Joi.ref('password'))
     .required(),
   email: Joi.string().email({ minDomainSegments: 2 }),

@@ -1,6 +1,6 @@
 const { connection } = require('../config/connection');
 
-const getUsers = (username) => connection.query('SELECT * FROM users WHERE username = $1', [username]);
+const getUsers = (username, email) => connection.query('SELECT * FROM users WHERE username = $1 OR email = $2', [username, email]);
 
 const addUser = (userInfo) => {
   const {

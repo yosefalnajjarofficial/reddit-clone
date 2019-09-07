@@ -9,6 +9,11 @@ const getUserPosts = (userId) => connection.query(
   [userId],
 );
 
+const getCommunityPost = (communityName) => connection.query(
+  'SELECT * FROM posts INNER JOIN communities ON communities.id = posts.community_id WHERE community_name = $1',
+  [communityName],
+);
+
 const addPost = (postData) => {
   const {
     postTitle, postContent, id, communityId,
@@ -25,4 +30,5 @@ module.exports = {
   getPosts,
   getUserPosts,
   addPost,
+  getCommunityPost,
 };
